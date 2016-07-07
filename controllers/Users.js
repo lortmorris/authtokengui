@@ -19,13 +19,13 @@ export function Users(main){
                 .catch(next);
         },
         'add': (req, res, next)=>{
-
-            main.libs.users.add({
-                fname: req.swagger.params.fname.value,
-                lname: req.swagger.params.lname.value,
-                email: req.swagger.params.email.value,
-                phone: req.swagger.params.phone.value,
-                city: req.swagger.params.city.value
+            
+            main.libs.Users.add({
+                fname: req.swagger.params.user.value.fname,
+                lname: req.swagger.params.user.value.lname,
+                email: req.swagger.params.user.value.email,
+                phone: req.swagger.params.user.value.phone,
+                city: req.swagger.params.user.value.city
             })
             .then((doc)=>{
                     res.json(doc);

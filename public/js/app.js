@@ -35,7 +35,7 @@ function tableFactory(ngTableParams, $filter, $scope, index, data) {
 
 
   $scope["rowCollection" + index] = data;
-  $scope["tableParams" + index] = new ngTableParams({
+  return $scope["tableParams" + index] = new ngTableParams({
     page: 1,            // show first page
     count: 50,          // count per page
     sorting: {
@@ -119,7 +119,8 @@ myapp.controller("users", function ($scope, $filter, ngTableParams, $http) {
             data: $scope.nUser
         })
         .success(function(data, status,headers, config){
-
+                $scope.rowCollectionUsers.push(data);
+                $scope.tableParamsUsers.reload();
             })
         .error(function(data, status, headers, config){
                 console.log("Error adding: ", data);

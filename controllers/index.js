@@ -86,8 +86,7 @@ function makeControllers(main){
 
     return wrapControllers({
         'users.all_get': controllers.Users.all,
-        'users.get_get': controllers.Users.get,
-        'users.login_get': controllers.Users.login,
+        'users.add_post': controllers.Users.add,
 
     }, main.announce);
 }
