@@ -1,0 +1,42 @@
+{
+  "name": "apiauthweb",
+  "version": "1.0.0",
+  "description": "Web Interface for apiauth-node",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "./node_modules/.bin/babel-node index.js --presets es2015,stage-2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lortmorris/apiauthweb.git"
+  },
+  "keywords": [
+    "api",
+    "auth",
+    "token"
+  ],
+  "author": "César Casas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lortmorris/apiauthweb/issues"
+  },
+  "homepage": "https://github.com/lortmorris/apiauthweb#readme",
+  "dependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-register": "^6.9.0",
+    "config": "^1.19.0",
+    "connect-mongo": "^1.2.1",
+    "cors": "^2.7.1",
+    "debug": "^2.2.0",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.13.0",
+    "mongojs": "^2.3.0",
+    "redis-sentinel": "^0.3.3",
+    "shortid": "^2.2.6",
+    "socket.io": "^1.4.8",
+    "swagger-tools": "^0.10.1"
+  }
+}

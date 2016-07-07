@@ -1,0 +1,124 @@
+swagger: '2.0'
+info:
+  title: AUTH TOEKN API REST
+  description: 'ABM your api keys, drop connections, see logs and more'
+  version: 1.0.0
+host: 'localhost:5000'
+basePath: /service/
+consumes:
+  - application/json
+produces:
+  - application/json
+tags:
+  - name: users
+    description: Users operations
+
+paths:
+
+  /users:
+    get:
+      tags:
+        - users
+      summary: Get all users into database
+      x-swagger-router-controller: users.all
+      parameters:
+        - name: userId
+          in: query
+          required: false
+          description: UserId
+          type: string
+        - name: email
+          in: query
+          required: false
+          type: string
+      responses:
+        '200':
+          description: list all register users
+          schema:
+            $ref: '#/definitions/User'
+
+  /users/add:
+    post:
+      tags:
+        - users
+      summary: add new user into database
+      x-swagger-router-controller: users.add
+      parameters:
+        - name: user
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: new user
+          schema:
+            $ref: '#/definitions/User'
+
+  /keys:
+    get:
+      tags:
+        - keys
+      summary: get all keys
+      x-swagger-router-controller: keys.all
+      parameters:
+        - name: userId
+          type: string
+          in: query
+          required: false
+      responses:
+        '200':
+          description: "key object"
+          schema:
+            $ref: '#/definitions/Keys'
+
+  /keys/add:
+    post:
+      tags:
+        - keys
+      summary: add new key
+      x-swagger-router-controller: keys.add
+      parameters:
+        - name: key
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Keys'
+      responses:
+        '200':
+          description: new Key
+          schema:
+            $ref: '#/definitions/Keys'
+
+
+definitions:
+
+  Keys:
+    type: object
+    properties:
+      _id:
+        type: string
+      userid:
+        type: object
+      apikey:
+        type: string
+      secret:
+        type: string
+      ratelimit:
+        type: string
+
+  User:
+    type: object
+    properties:
+      _id:
+        type: string
+      email:
+        type: string
+      fname:
+        type: string
+      lname:
+        type: string
+      city:
+        type: string
+      phone:
+        type: string

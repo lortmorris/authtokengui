@@ -1,0 +1,50 @@
+<div ng-controller="users">
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="fname">First name</label>
+            <input type="text" class="form-control" id="fname" placeholder="Pepe" ng-model="nUser.fname">
+        </div>
+
+        <div class="form-group">
+            <label for="lname">Last name</label>
+            <input type="text" class="form-control" id="lname" placeholder="Luis" ng-model="nUser.lname">
+        </div>
+
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" placeholder="Buenos Aires..." ng-model="nUser.city">
+        </div> <br />
+
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phone" placeholder="+5491xxxxxx" ng-model="nUser.phone">
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" class="form-control" id="email" placeholder="...@...." ng-model="nUser.email">
+        </div>
+
+
+        <button type="submit" class="btn btn-default" ng-click="add()">+ Add</button>
+    </form>
+
+
+    <div class="responsive-table dash-box2" >
+        <table ng-table="tableParamsUsers"  class="table table-striped table-bordered">
+            <tr ng-repeat="row in $data" >
+                <td data-title="'_id'">{{row._id}}</td>
+                <td data-title="'created'">{{row.created | date}}</td>
+                <td data-title="'fname'">{{row.fname}}</td>
+                <td data-title="'lname'">{{row.lname}}</td>
+                <td data-title="'city'">{{row.city}}</td>
+                <td data-title="'phone'">{{row.phone}}</td>
+                <td data-title="'email'">{{row.email}}</td>
+
+            </tr>
+        </table>
+    </div>
+
+
+
+</div>
