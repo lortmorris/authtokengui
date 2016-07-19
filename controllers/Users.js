@@ -19,7 +19,7 @@ export function Users(main){
                 .catch(next);
         },
         'add': (req, res, next)=>{
-            
+
             main.libs.Users.add({
                 fname: req.swagger.params.user.value.fname,
                 lname: req.swagger.params.user.value.lname,

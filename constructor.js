@@ -1,5 +1,3 @@
-
-
 import {common} from './lib/common';
 import {default as express} from 'express';
 import {default as http} from 'http';
@@ -22,6 +20,7 @@ import {Redis} from "./lib/redis";
 
 import {makeControllers} from './controllers/';
 import {Users} from "./lib/Users";
+import {Keys} from "./lib/Keys";
 import {MWS} from "./mws";
 import {Routes} from "./routes";
 
@@ -189,8 +188,7 @@ app.prototype.libs = function () {
         };
 
         self.main.libs.Users = new Users(self.main);
-
-
+        self.main.libs.Keys = new Keys(self.main);
         resolve(self.main.libs);
     });
 }

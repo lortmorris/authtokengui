@@ -60,7 +60,7 @@ paths:
       tags:
         - keys
       summary: get all keys
-      x-swagger-router-controller: keys.all
+      x-swagger-router-controller: Keys.all
       parameters:
         - name: userId
           type: string
@@ -77,7 +77,7 @@ paths:
       tags:
         - keys
       summary: add new key
-      x-swagger-router-controller: keys.add
+      x-swagger-router-controller: Keys.add
       parameters:
         - name: key
           in: body
@@ -99,13 +99,21 @@ definitions:
       _id:
         type: string
       userid:
-        type: object
+        type: string
       apikey:
         type: string
       secret:
         type: string
       ratelimit:
         type: string
+      allows:
+        type: array
+        items:
+          type: string
+      deny:
+        type: array
+        items:
+          type: string
 
   User:
     type: object

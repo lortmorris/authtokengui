@@ -3,6 +3,7 @@
 
 import {fdebug}  from '../lib/fdebug';
 import {Users} from './Users';
+import {Keys} from './Keys';
 const debug = fdebug('authtoken:controllers:index');
 
 
@@ -80,13 +81,16 @@ function makeControllers(main){
     debug("main function called");
 
     var controllers = {
-        Users: Users(main)
+        Users: Users(main),
+        Keys: Keys(main)
     };
 
 
     return wrapControllers({
         'users.all_get': controllers.Users.all,
         'users.add_post': controllers.Users.add,
+        'Keys.add_post': controllers.Keys.add,
+        'Keys.all_get': controllers.Keys.all
 
     }, main.announce);
 }
