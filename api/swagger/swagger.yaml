@@ -44,7 +44,7 @@ paths:
       summary: delete user
       x-swagger-router-controller: user.del
       parameters:
-        - name: id
+        - name: user
           in: body
           required: true
           description: userId
@@ -120,7 +120,7 @@ paths:
       summary: delete api key
       x-swagger-router-controller: keys.del
       parameters:
-        - name: id
+        - name: key
           in: body
           required: true
           schema:

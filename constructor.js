@@ -187,8 +187,8 @@ app.prototype.libs = function () {
             shortid: shortid
         };
 
-        self.main.libs.Users = new Users(self.main);
         self.main.libs.Keys = new Keys(self.main);
+        self.main.libs.Users = new Users(self.main);
         resolve(self.main.libs);
     });
 }

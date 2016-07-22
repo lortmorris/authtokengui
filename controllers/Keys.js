@@ -32,7 +32,30 @@ export function Keys(main){
                 })
                 .catch(next);
 
-        }//end login
+        },//end login
+
+        'del': (req, res, next)=>{
+
+            let id = req.swagger.params.key.value.id;
+
+            main.libs.Keys.del(id)
+                .then((doc)=>{
+                    res.json(doc);
+                })
+                .catch(next);
+        },
+
+        'update': (req, res, next)=>{
+
+            let key = req.swagger.params.key.value;
+
+            main.libs.Keys.update(key)
+                .then((doc)=>{
+                    res.json(doc);
+                })
+                .catch(next);
+        }
+
 
     };
 }

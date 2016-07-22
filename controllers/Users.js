@@ -32,7 +32,29 @@ export function Users(main){
                 })
             .catch(next);
 
-        }//end login
+        },//end login
+
+        'del': (req, res, next)=>{
+
+            let id = req.swagger.params.user.value.id;
+
+            main.libs.Users.del(id)
+            .then((doc)=>{
+                    res.json(doc);
+                })
+            .catch(next);
+        },
+
+        'update': (req, res, next)=>{
+
+            let user = req.swagger.params.user.value;
+
+            main.libs.Users.update(user)
+                .then((doc)=>{
+                    res.json(doc);
+                })
+                .catch(next);
+        }
 
     };
 }
