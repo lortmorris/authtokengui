@@ -248,18 +248,34 @@ myapp.controller("keys", function ($scope, $filter, ngTableParams, $http) {
 myapp.controller("users", function ($scope, $filter, ngTableParams, $http) {
 
     $scope.nUser = {};
+    $scope.btnAction = "+ Add";
 
-    $scope.add = function () {
+    $scope.addOrEdit = function () {
 
-        myapp.addUser($http, $scope.nUser, function (err, data) {
-            if (err) {
+        if($scope.nUser._id){
+            //edit user
+        }else{
+            //new user
+            myapp.addUser($http, $scope.nUser, function (err, data) {
+                if (err) {
 
-            } else {
-                $scope.rowCollectionUsers.push(data);
-                $scope.tableParamsUsers.reload();
-            }
-        });
+                } else {
+                    $scope.rowCollectionUsers.push(data);
+                    $scope.tableParamsUsers.reload();
+                }
+            });
+        }
+
+    };
+
+    $scope.reset  = function(){
+        $scope.nUser = {};
     }
+
+    $scope.edit = function(user){
+        $scope.nUser = user;
+        $scope.btnAction = "Edit";
+    };
 
     myapp.getUsers($http, function (err, data) {
         if (err) {

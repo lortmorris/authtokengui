@@ -37,6 +37,46 @@ paths:
           schema:
             $ref: '#/definitions/User'
 
+  /users/del:
+    post:
+      tags:
+        - users
+      summary: delete user
+      x-swagger-router-controller: user.del
+      parameters:
+        - name: id
+          in: body
+          required: true
+          description: userId
+          schema:
+            properties:
+              id:
+                type: string
+      responses:
+        '200':
+          description: operation result
+          schema:
+            $ref: '#/definitions/User'
+
+
+  /users/edit:
+    post:
+      tags:
+        - users
+      summary: update user information
+      x-swagger-router-controller: user.edit
+      parameters:
+        - name: user
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: user updated
+          schema:
+            $ref: '#/definitions/User'
+
   /users/add:
     post:
       tags:
@@ -60,7 +100,7 @@ paths:
       tags:
         - keys
       summary: get all keys
-      x-swagger-router-controller: Keys.all
+      x-swagger-router-controller: keys.all
       parameters:
         - name: userId
           type: string
@@ -72,12 +112,50 @@ paths:
           schema:
             $ref: '#/definitions/Keys'
 
+
+  /keys/del:
+    post:
+      tags:
+        - keys
+      summary: delete api key
+      x-swagger-router-controller: keys.del
+      parameters:
+        - name: id
+          in: body
+          required: true
+          schema:
+            properties:
+              id:
+                type: string
+      responses:
+        '200':
+          description: action result
+          schema:
+            $ref: '#/definitions/Keys'
+
+  /keys/edit:
+    post:
+      tags:
+        - keys
+      x-swagger-router-controller: keys.edit
+      parameters:
+        - name: key
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Keys'
+      responses:
+        '200':
+          description: edit status
+          schema:
+            $ref: '#/definitions/Keys'
+
   /keys/add:
     post:
       tags:
         - keys
       summary: add new key
-      x-swagger-router-controller: Keys.add
+      x-swagger-router-controller: keys.add
       parameters:
         - name: key
           in: body
@@ -99,14 +177,14 @@ definitions:
       _id:
         type: string
       userid:
-        type: string
+        type: object
       apikey:
         type: string
       secret:
         type: string
       ratelimit:
         type: string
-      allows:
+      allow:
         type: array
         items:
           type: string
