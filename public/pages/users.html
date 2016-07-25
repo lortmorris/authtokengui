@@ -2,15 +2,15 @@
     <button type="button">
         <i class="fa fa-plus" ng-click="reset()"></i>
     </button>
-    <form class="form-inline">
+    <form class="form-inline" ng-submit="addOrEdit()">
         <div class="form-group">
             <label for="fname">First name</label>
-            <input type="text" class="form-control" id="fname" placeholder="Pepe" ng-model="nUser.fname">
+            <input type="text" class="form-control" id="fname" placeholder="Pepe" ng-model="nUser.fname" required="required">
         </div>
 
         <div class="form-group">
             <label for="lname">Last name</label>
-            <input type="text" class="form-control" id="lname" placeholder="Luis" ng-model="nUser.lname">
+            <input type="text" class="form-control" id="lname" placeholder="Luis" ng-model="nUser.lname" required="required">
         </div>
 
         <div class="form-group">
@@ -25,11 +25,11 @@
 
         <div class="form-group">
             <label for="email">E-Mail</label>
-            <input type="email" class="form-control" id="email" placeholder="...@...." ng-model="nUser.email">
+            <input type="email" class="form-control" id="email" placeholder="...@...." ng-model="nUser.email" required="required">
         </div>
 
 
-        <button type="submit" class="btn btn-default" ng-click="add()">{{btnAction}}</button>
+        <button type="submit" class="btn btn-default" >{{btnAction}}</button>
     </form>
 
 
@@ -48,6 +48,7 @@
                     <button type="button" ng-click="delete(row._id)">
                         <i class="fa fa-times"></i>
                     </button>
+
                     <button type="button" ng-click="edit(row)">
                         <i class="fa fa-pencil-square-o"></i>
                     </button>
