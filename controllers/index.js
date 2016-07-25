@@ -89,9 +89,13 @@ function makeControllers(main){
     return wrapControllers({
         'users.all_get': controllers.Users.all,
         'users.add_post': controllers.Users.add,
-        'Keys.add_post': controllers.Keys.add,
-        'Keys.all_get': controllers.Keys.all
+        'users.del_post': controllers.Users.del,
+        'users.edit_post': controllers.Users.update,
 
+        'Keys.add_post': controllers.Keys.add,
+        'Keys.all_get': controllers.Keys.all,
+        'Keys.del_post': controllers.Keys.del,
+        'Keys.edit_post': controllers.Keys.update
     }, main.announce);
 }
 

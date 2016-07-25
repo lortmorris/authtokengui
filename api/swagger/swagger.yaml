@@ -42,7 +42,7 @@ paths:
       tags:
         - users
       summary: delete user
-      x-swagger-router-controller: user.del
+      x-swagger-router-controller: users.del
       parameters:
         - name: user
           in: body
@@ -64,7 +64,7 @@ paths:
       tags:
         - users
       summary: update user information
-      x-swagger-router-controller: user.edit
+      x-swagger-router-controller: users.edit
       parameters:
         - name: user
           in: body
@@ -118,7 +118,7 @@ paths:
       tags:
         - keys
       summary: delete api key
-      x-swagger-router-controller: keys.del
+      x-swagger-router-controller: Keys.del
       parameters:
         - name: key
           in: body
@@ -137,7 +137,7 @@ paths:
     post:
       tags:
         - keys
-      x-swagger-router-controller: keys.edit
+      x-swagger-router-controller: Keys.edit
       parameters:
         - name: key
           in: body
@@ -155,7 +155,7 @@ paths:
       tags:
         - keys
       summary: add new key
-      x-swagger-router-controller: keys.add
+      x-swagger-router-controller: Keys.add
       parameters:
         - name: key
           in: body
