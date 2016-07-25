@@ -100,7 +100,7 @@ paths:
       tags:
         - keys
       summary: get all keys
-      x-swagger-router-controller: keys.all
+      x-swagger-router-controller: Keys.all
       parameters:
         - name: userId
           type: string
