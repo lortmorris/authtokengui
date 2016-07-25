@@ -1,9 +1,14 @@
 <div ng-controller="keys">
-    <form class="form-inline" ng-submit="add()">
+    <button type="button">
+        <i class="fa fa-plus" ng-click="reset()"></i>
+    </button>
+    <form class="form-inline" ng-submit="addOrEdit()">
 
         <div class="form-group">
             <label for="userid">User</label>
-            <select ng-model="nKey.userid" id="userid" ngRequired="true" ng-options="item as item.email for item in users track by item._id" ng-required="true"></select>
+            <select  ng-model="nKey.userid" id="userid"  ng-options="item as item.email for item in users track by item._id" ng-required="true">
+                <option value="">Select user</option>
+            </select>
 
         </div>
 
@@ -32,7 +37,7 @@
         </div>
 
 
-        <button type="submit" class="btn btn-default" >+ Add</button>
+        <button type="submit" class="btn btn-default" >{{btnAction}}</button>
     </form>
 
     <div class="responsive-table dash-box2" >
@@ -47,6 +52,19 @@
                 <td data-title="'ratelimit'">{{row.ratelimit}}</td>
                 <td data-title="'allow'">{{row.allow | json}}</td>
                 <td data-title="'deny'">{{row.deny | json}}</td>
+
+
+                <td data-title="'delete'">
+
+                    <button type="button" ng-click="delete(row._id)">
+                        <i class="fa fa-times"></i>
+                    </button>
+
+                    <button type="button" ng-click="edit(row)">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </button>
+
+                </td>
 
             </tr>
         </table>

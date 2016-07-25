@@ -174,10 +174,8 @@ definitions:
   Keys:
     type: object
     properties:
-      _id:
-        type: string
       userid:
-        type: object
+        type: string
       apikey:
         type: string
       secret:
@@ -196,8 +194,6 @@ definitions:
   User:
     type: object
     properties:
-      _id:
-        type: string
       email:
         type: string
       fname:
