@@ -266,6 +266,8 @@ app.prototype.routers = function () {
             }));
 
             app.use(express.static('public'));
+            //this is for react bundle.js
+            app.use(express.static("./src/public"));
 
             debug("loading router: ");
             Routes(self.main);

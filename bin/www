@@ -9,6 +9,7 @@ var http = require('http');
 
 new app(config)
     .then((main)=> {
+        console.log("running...");
         var server  =main.server;
         var port = normalizePort(process.env.PORT || config.get('server.port'));
 
@@ -69,7 +70,7 @@ new app(config)
             var bind = typeof addr === 'string'
                 ? 'pipe ' + addr
                 : 'port ' + addr.port;
-            debug('Listening on ' + bind);
+            console.log('Listening on ' + bind);
         }
 
         /**
